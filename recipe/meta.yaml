@@ -1,5 +1,6 @@
 {% set name = "arize-phoenix-otel" %}
-{% set version = "0.5.1" %}
+{% set version = "0.16.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/arize_phoenix_otel-{{ version }}.tar.gz
-  sha256: 7717122db47744aa9da052bf5516e0b5061b38d8a5aecaf90f22ca7f88643b57
+  sha256: 28ba1d43dcd2dc556f6cac25622c3333e613e2cf1d687832a9ed5ce2c20e17be
 
 build:
   noarch: python
@@ -16,17 +17,19 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<3.13
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.8,<3.13
+    - python >={{ python_min }}
     - opentelemetry-semantic-conventions
     - opentelemetry-exporter-otlp
     - opentelemetry-proto >=1.12.0
     - opentelemetry-sdk
-    - openinference-semantic-conventions >=0.1.9
+    - openinference-semantic-conventions >=0.1.17
+    - openinference-instrumentation >=0.1.38
     - typing-extensions >=4.5,<5
+    - wrapt
 
 test:
   imports:
@@ -34,6 +37,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
@@ -46,3 +50,8 @@ about:
 extra:
   recipe-maintainers:
     - anticorrelator
+    - mikeldking
+    - rogerhyang
+    - michaelschiff
+    - fjcasti1
+    - axiomofjoy
