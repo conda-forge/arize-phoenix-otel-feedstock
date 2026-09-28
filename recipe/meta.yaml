@@ -1,5 +1,5 @@
 {% set name = "arize-phoenix-otel" %}
-{% set version = "0.16.1" %}
+{% set version = "0.17.2" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/arize_phoenix_otel-{{ version }}.tar.gz
-  sha256: 28ba1d43dcd2dc556f6cac25622c3333e613e2cf1d687832a9ed5ce2c20e17be
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/arize_phoenix_otel-{{ version }}.tar.gz
+  sha256: 4e256bb205ddb216328372b17508f3695d011655d7b1f477f37aabe5b9a10109
 
 build:
   noarch: python
